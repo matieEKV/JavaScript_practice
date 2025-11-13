@@ -21,8 +21,22 @@
     <div class="button-area">
         <button id="new-quote">Quote</button>
     </div>
+    <div class="addQuote">
+        <button id="addQuote" onclick="openPopup( )">Add New Quote</button>
+    </div>
 </div>
-
+<div class="popup" id="popup">
+    <label for="newQuote">Write the quote: 
+        <textarea id="newQuote", name="newQuote" rows="3" cols="50" required placeholder="Not all who wander are lost..."></textarea>
+    </label>
+    <label for="newAuthor">Author's name: 
+        <input id="newAuthor" name="newAuthor" type="text" required />
+    </label>
+    <div class="submitForm">
+        <button id="submit" type="submit" value="Submit" onclick="closePopup()">Submit</button>
+    </div>
+</div>
+<!-- <button onclick="toggleElement()">Add New Quote</button> -->
 
 <script src = "fetch.js"></script>
 

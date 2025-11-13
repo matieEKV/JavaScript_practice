@@ -32,4 +32,9 @@ const getQuote = function () {
     return quotes[random];
 }
 
-module.exports = getQuote;
+const addQuote = function (data) {
+    quotes.push(data);
+}
+
+module.exports = { getQuote, addQuote };
+

@@ -8,6 +8,9 @@
 }
 
 body{
+    background: url(calm.jpg) no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,7 +31,7 @@ body{
     font-size: 1.2rem;
     border: solid 2px #fff;
     color: #fff;
-    background-color: #4d9092;
+    background-color: #9771d0;
     padding: 5px;
     width: 75%;
     margin: 20px auto;
@@ -56,7 +59,7 @@ body{
 }
 
 .button-area button {
-    background-color: #4d9092;
+    background-color: #9771d0;
     color: #fff;
     font-size: 1.3rem;
     padding: 10px 15px;
@@ -65,5 +68,90 @@ body{
 }
 
 .button-area button:active {
-    background-color: lightblue;
+    background-color: rgb(220, 173, 230);
+}
+
+form {
+    width: 50vh;
+    max-width: 150px;
+    min-width: 100px;
+    margin: 0 auto;
+    padding-bottom: 2em;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+fieldset {
+    border: solid #9771d0;
+    padding: 2rem 0;
+    border-radius: 15px;
+    padding: 30px 20px;
+    box-shadow: 0 0 10px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+}
+
+label {
+    display: block;
+    margin: 0.5rem 0;
+}
+
+input, textarea {
+    border-radius: 5px;
+}
+
+.submitForm button {
+    margin-top: 15px;
+    width: 80px;
+    height: 25px;
+    background-color: #9771d0;
+    color: white;
+    border-radius: 5px;
+}
+
+.submitForm button:active {
+    background-color: rgb(220, 173, 230);
+}
+
+#addQuote {
+    margin-top: 15px;
+    background-color: #9771d0;
+    color: #fff;
+    width: 130px;
+    margin-top: 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+#addQuote:active {
+    background-color: rgb(220, 173, 230);
+}
+
+.popup {
+    width: 400px;
+    height: 160px;
+    position: absolute;
+    background-color: #fff;
+    border: solid #9771d0;
+    border-radius: 15px;
+    box-shadow: 0 0 10px;
+    top: 0%;
+    left: 40.7%;
+    transform: translate(-20%, -50%) scale(0.1);
+    visibility: hidden;
+    transition: transform 0.4s, top 0.4s;
+}
+
+.open-popup {
+    visibility: visible;
+    top: 20%;
+    transform: translate(-20%, -50%) scale(1);
 }

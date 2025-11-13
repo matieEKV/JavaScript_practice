@@ -1,6 +1,7 @@
-let btn = document.querySelector('#new-quote');
+let changeQuoteButton = document.querySelector('#new-quote');
 let quote = document.querySelector('.quote');
 let person = document.querySelector('.person');
+let submitButton = document.querySelector('#submit');
 
 //storing a return value from setInterval function to be used for clearing the interval when button is pressed
 let intervalID = scheduleFetch();
@@ -21,6 +22,7 @@ function resetFetch() {
 function resetInterval() {
     clearInterval(intervalID);
     intervalID = scheduleFetch();
+}
 
 // Writing a fetching function that can be used in several places when needed
 function fetchQuote() {  
@@ -34,7 +36,42 @@ function fetchQuote() {
         console.log("Could not fetch the quote", error)
     });
 }
+// grab the user input for new quote and store into an object which is returned when function called
+function getInputValue() {
+    let newQuoteEl = document.getElementById('newQuote');
+    let newAuthorEl = document.getElementById('newAuthor');
+
+    let newQuoteAuthor = {
+        'quote': newQuoteEl.value,
+        'person': newAuthorEl.value
+    }
+    return newQuoteAuthor;
+}
+// the post request that is sent to the server
+function sendNewQuoteRequest () {
+    fetch("http://localhost:8080", {
+        method: 'POST',
+        body: JSON.stringify(getInputValue()) //send a string representation of the return value (object) of the called function
+    });
+}
+// functions to be called upon submit button for new quote clicked
+function submitQuote () {
+    getInputValue();
+    sendNewQuoteRequest();
 }
 
 // Adding an event listener which takes resetFetch as a callback
-btn.addEventListener('click', resetFetch);
+changeQuoteButton.addEventListener('click', resetFetch);
+//adding an event listener which takes submitQuote as a callback
+submitButton.addEventListener('click', submitQuote);
+
+//closing and opening of 'Add new quote' window
+let popup = document.getElementById('popup');
+
+function openPopup() {
+    popup.classList.add("open-popup");
+}
+
+function closePopup() {
+    popup.classList.remove("open-popup");
+}
